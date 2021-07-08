@@ -1,5 +1,3 @@
 # HealthEat
 
 ## Story
-
-##Contributors
