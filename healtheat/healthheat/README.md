@@ -1,3 +1,0 @@
-# HealthEat
-
-## Story
