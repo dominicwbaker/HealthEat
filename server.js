@@ -1,9 +1,11 @@
 const express = require("express");
-
+const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.use(logger("dev"));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,8 +19,8 @@ if (process.env.NODE_ENV === "production") {
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/healtheat");
 
 // Add routes, both API and view
-const routes = require("./routes");
-app.use(routes);
+// const routes = require("./routes");
+// app.use(routes);
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
