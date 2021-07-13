@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
-import Container from "../../components/Container";
-import SearchForm from "../../components/SearchForm";
-import SearchResults from "../../components/SearchResults";
+import Container from "../../Components/Container";
+import SearchForm from "../../Components/SearchForm";
+import SearchResults from "../../Components/SearchResults";
+import Alert from "../../Components/Alert";
 import useDebounce from "../../utils/debounceHook";
 
 function Search() {

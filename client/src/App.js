@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Search from "./pages/Search";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Wrapper from "./components/Wrapper";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import Wrapper from "./Components/Wrapper";
 import "./App.css";
 
 
