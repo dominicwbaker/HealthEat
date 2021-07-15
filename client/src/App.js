@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import logo from './logo.svg';
-import '../src/App.css';
 import Axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import Recipe from "./Components/Recipe";
 import Alert from "./Components/Alert";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Signup from "./pages/Signup";
+import Search from "./pages/Search";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import Wrapper from "./Components/Wrapper";
+import "./App.css";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -35,6 +41,7 @@ function App() {
     getData();
   };
   return (
+
     <div className="App">
       <h1>Health-Eat</h1>
       <form onSubmit={onSubmit} className="search-form">
@@ -53,7 +60,19 @@ function App() {
         {recipes !== [] &&
           recipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe} />)}
       </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Wrapper>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/signup" component={Signup} />
+        </Wrapper>
+        <Footer />
+      </div>
+    </Router>
     </div>
+
+
   );
 }
 export default App;
