@@ -10,6 +10,7 @@ import Search from "./pages/Search";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Wrapper from "./Components/Wrapper";
+import Dashboard from "./pages/Dashboard";
 import "./App.css";
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
         <Wrapper>
           <Route exact path="/" component={Search} />
           <Route exact path="/signup" component={Signup} />
+          <route exact path="/dashboard" component={Dashboard} />
         </Wrapper>
         <Footer />
       </div>
