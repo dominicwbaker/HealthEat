@@ -7,6 +7,7 @@ import Alert from "./Components/Alert";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Search from "./pages/Search";
+import MealPlan from "./pages/MealPlan";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Wrapper from "./Components/Wrapper";
@@ -66,6 +67,7 @@ function App() {
         <Wrapper>
           <Route exact path="/" component={Search} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/mealplan" component={MealPlan} />
         </Wrapper>
         <Footer />
       </div>

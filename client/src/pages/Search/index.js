@@ -22,7 +22,7 @@ function Search(props) {
     if (query !== "") {
       const result = await axios.get(url);
       if (!result.data.more) {
-        return setAlert("No food with such name");
+        return setAlert("No food with such name")
       }
       console.log(result);
       setRecipes(result.data.hits);

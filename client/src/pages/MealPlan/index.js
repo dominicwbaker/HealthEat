@@ -1,6 +1,7 @@
-import API from "../utils/API"
+import React, { useState, useEffect, useRef } from 'react'
+import API from "../../utils/API"
 
-function MealPlan(){
+function MealPlan() {
     const [meals, setMeals] = useState([])
     const query = useRef(null)
     const getMeals = async () => {
@@ -8,7 +9,7 @@ function MealPlan(){
         try {
             const search = await API.search(query.current.value)
             console.log(search)
-            setBooks(search.data.items)
+            setMeals(search)
         } catch (err) { console.log(err) }
 
 
@@ -16,9 +17,19 @@ function MealPlan(){
 
     return (
         <div>
-
+              <form>
+                    <input
+                        ref={query}
+                        name="query"
+                        placeholder="Search"
+                    />
+                    <button
+                        onClick={getMeals   }
+                        type="button"
+                    >Search</button>
+                </form>
         </div>
-    )
+                )
 }
 
-export default MealPlan;
+                export default MealPlan;
