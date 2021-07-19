@@ -7,6 +7,7 @@ import Alert from "./Components/Alert";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Search from "./pages/Search";
+import MealPlan from "./pages/MealPlan";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Wrapper from "./Components/Wrapper";
@@ -67,7 +68,11 @@ function App() {
         <Wrapper>
           <Route exact path="/" component={Search} />
           <Route exact path="/signup" component={Signup} />
+<<<<<<< HEAD
           <route exact path="/dashboard" component={Dashboard} />
+=======
+          <Route exact path="/mealplan" component={MealPlan} />
+>>>>>>> 0b0f0c74e8e009b9d83c42461008e5247270507e
         </Wrapper>
         <Footer />
       </div>
