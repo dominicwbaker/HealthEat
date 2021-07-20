@@ -45,7 +45,6 @@ function App() {
   return (
 
     <div className="App">
-      <h1>Health-Eat</h1>
       {/* <form onSubmit={onSubmit} className="search-form">
         {alert !== "" && <Alert alert={alert} />}
         <input
@@ -68,11 +67,7 @@ function App() {
         <Wrapper>
           <Route exact path="/" component={Search} />
           <Route exact path="/signup" component={Signup} />
-<<<<<<< HEAD
-          <route exact path="/dashboard" component={Dashboard} />
-=======
           <Route exact path="/mealplan" component={MealPlan} />
->>>>>>> 0b0f0c74e8e009b9d83c42461008e5247270507e
         </Wrapper>
         <Footer />
       </div>

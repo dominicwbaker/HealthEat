@@ -1,5 +1,6 @@
 import React from 'react';
 import Wrapper from '../../Components/Wrapper';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const Dashboard = () => {
     return (
