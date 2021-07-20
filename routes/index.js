@@ -16,9 +16,9 @@ router.get("/search", (req, res) => {
   const query = req.query.q
   console.log("see me")
   axios.get(BASEURL + query + "&app_id=" + APPID + "&app_key=" + APPKEY).then(( response ) =>{
-    console.log(response.data)
+    console.log(response.data.hits)
     console.log("see you")
-    res.json(response.data)
+    res.json(response.data.hits)
   }
 
 )
