@@ -11,6 +11,7 @@ import MealPlan from "./pages/MealPlan";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Wrapper from "./Components/Wrapper";
+import Dashboard from "./pages/Dashboard";
 import "./App.css";
 
 function App() {
@@ -44,7 +45,6 @@ function App() {
   return (
 
     <div className="App">
-      <h1>Health-Eat</h1>
       {/* <form onSubmit={onSubmit} className="search-form">
         {alert !== "" && <Alert alert={alert} />}
         <input
