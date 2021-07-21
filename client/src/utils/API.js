@@ -4,6 +4,6 @@ import axios from "axios";
 
 export default {
   search: function(query) {
-    return axios.get(`/search?q=${query}`);
+    return axios.get(`/search/${query}`);
   }
 }
