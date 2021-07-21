@@ -2,7 +2,12 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
+var cors = require('cors')
 const app = express();
+require('dotenv').config()
+
+app.use(cors())
+
 const PORT = process.env.PORT || 3001;
 
 app.use(logger("dev"));
