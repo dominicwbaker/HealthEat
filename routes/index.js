@@ -7,14 +7,15 @@ router.use("/api", apiRoutes);
 console.log("look here")
 
 // If no API routes are hit, send the React app
-router.get("/search", (req, res) => {
+router.get("/search/:query", (req, res) => {
   console.log("see")
   const BASEURL = "https://api.edamam.com/search?q=";
   console.log("me")
   const APPKEY = process.env.REACT_APP_API_KEY
   const APPID = process.env.REACT_APP_API_ID
-  const query = req.query.q
-  console.log("see me")
+  const query = req.params.query
+  console.log(BASEURL + query + "&app_id=" + APPID + "&app_key=" + APPKEY)
+
   axios.get(BASEURL + query + "&app_id=" + APPID + "&app_key=" + APPKEY).then(( response ) =>{
     console.log(response.data.hits)
     console.log("see you")
