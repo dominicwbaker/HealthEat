@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
 import API from "../../utils/API"
+import axios from "axios"
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { ButtonGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+var n = 1
 
 class MealPlan extends React.Component {
     // const [meals, setMeals] = useState([])
@@ -30,7 +33,7 @@ class MealPlan extends React.Component {
                     // const randSearch = Math.floor(Math.random() * meals.length)
                     // const randMeal = meals[randSearch]
                     // console.log(randMeal)
-                    var n = 3
+
                     var randomMeals = new Array(n),
                         len = this.state.meals.length,
                         taken = new Array(len);
@@ -60,10 +63,10 @@ class MealPlan extends React.Component {
                             key={variant}
                             id={`dropdown-variants-${variant}`}
                             variant={variant.toLowerCase()}
-                            title={variant}
+                            title="Choose a Diet"
                         >
                             <Dropdown.Item onClick={() => { this.getMeals("keto-friendly") }} eventKey="1">Keto-Friendly</Dropdown.Item>
-                            <Dropdown.Item onClick={() => { this.getMeals("pescatarian") }}  eventKey="2">Pescatarian</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { this.getMeals("pescatarian") }} eventKey="2">Pescatarian</Dropdown.Item>
                             <Dropdown.Item onClick={() => { this.getMeals("fodmap-free") }} eventKey="3">Fodmap-Free</Dropdown.Item>
                             <Dropdown.Item onClick={() => { this.getMeals("vegan") }} eventKey="4">Vegan</Dropdown.Item>
                             <Dropdown.Item onClick={() => { this.getMeals("gluten-free") }} eventKey="5">Gluten-Free</Dropdown.Item>
@@ -72,22 +75,21 @@ class MealPlan extends React.Component {
                     ),
                 )}
 
-{['Secondary'].map(
-    (variant) => (
-      <DropdownButton
-        as={ButtonGroup}
-        key={variant}
-        id={`dropdown-variants-${variant}`}
-        variant={variant.toLowerCase()}
-        title={variant}
-      >
-        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-        <Dropdown.Item eventKey="3">Active Item</Dropdown.Item>
-
-      </DropdownButton>
-    ),
-  )}
+                {['Secondary'].map(
+                    (variant) => (
+                        <DropdownButton
+                            as={ButtonGroup}
+                            key={variant}
+                            id={`dropdown-variants-${variant}`}
+                            variant={variant.toLowerCase()}
+                            title="How Many Meals"
+                        >
+                            <Dropdown.Item onClick={() => { n = 1 }} eventKey="1">1 Meal</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { n = 2 }} eventKey="2">2 Meals</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { n = 3 }} eventKey="3">3 Meals</Dropdown.Item>
+                        </DropdownButton>
+                    ),
+                )}
             </div>
 
             /* <form>
