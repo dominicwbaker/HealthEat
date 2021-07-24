@@ -3,6 +3,9 @@ import Container from "../../Components/Container";
 import Col from "../../Components/Col";
 import Row from "../../Components/Row";
 import { Link, useLocation } from "react-router-dom";
+//dont forget to install locally!
+import { GoogleLogin } from "react-google-login";
+import { Button } from "bootstrap";
 function Signup() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -12,7 +15,12 @@ function Signup() {
     console.log("username is " + username);
     console.log("password is " + password);
   };
-
+  const googleSuccess = (res) => {
+    console.log(res);
+  }
+  const googleFailure = () => {
+    console.log("Google Sign In Failed")
+  }
   return (
     <div>
       <div className="mt-4">
@@ -45,8 +53,13 @@ function Signup() {
           <button className="btn btn-success" type="submit">
             Submit
           </button>
-          <Link to="/auth/google/redirect">Sign Up Using Google</Link>
-          
+          <div>
+          <GoogleLogin 
+            clientId="104281838998-pb1k12nvoc7m7bn98ad0o5cofacbn46p.apps.googleusercontent.com"
+            onSuccess={googleSuccess}
+            onFailure={googleFailure}
+          />
+          </div>
         </Container>
         <Container className="mt-4">
           <h3>Hello {username}!</h3>
