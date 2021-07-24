@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import API from "../../utils/API"
-import axios from "axios"
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { ButtonGroup } from 'react-bootstrap'
