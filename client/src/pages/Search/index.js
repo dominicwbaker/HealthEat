@@ -1,27 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import API from "../../utils/API"
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import Container from "../../Components/Container";
-import SearchForm from "../../Components/SearchForm";
-import SearchResults from "../../Components/SearchResults";
+
 import Alert from "../../Components/Alert";
-import useDebounce from "../../utils/debounceHook";
 import Recipe from "../../Components/Recipe";
 
 function Search(props) {
-  const [query, setQuery] = useState("");
+  const query = useRef(null);
   const [recipes, setRecipes] = useState([]);
   const [alert, setAlert] = useState("");
   
   const getData = async () => {
-    if (query !== "") {
-      const result = await API.search();
+    if (query.current.value !== "") {
+      const result = await API.search(query.current.value);
       console.log(result)
     
       setRecipes(result.data);
       console.log(recipes)
-      setQuery("");
+      // setQuery("");
       setAlert("");
       if (!result.data) {
         return setAlert("No food with such name");
@@ -30,7 +27,7 @@ function Search(props) {
       setAlert("Please fill the form");
     }
   };
-  const onChange = e => setQuery(e.target.value);
+  // const onChange = e => setQuery(e.target.value);
   const onSubmit = e => {
     e.preventDefault();
     getData();
@@ -43,10 +40,11 @@ function Search(props) {
            <form onSubmit={onSubmit} className="search-form">
         {alert !== "" && <Alert alert={alert} />}
         <input
+          ref={query}
           type="text"
           name="query"
-          onChange={onChange}
-          value={query}
+          // onChange={onChange}
+          // value={query}
           autoComplete="off"
           placeholder="Search Food"
         />
