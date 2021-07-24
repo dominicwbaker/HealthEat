@@ -45,7 +45,7 @@ function Signup() {
           <button className="btn btn-success" type="submit">
             Submit
           </button>
-          <Link>Blah blach</Link>
+          <Link to="/auth/google/redirect">Sign Up Using Google</Link>
           
         </Container>
         <Container className="mt-4">

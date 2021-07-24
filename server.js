@@ -38,6 +38,12 @@ app.use(routes);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
+//test to see if this route methods works
+app.get( '/auth/google/redirect',
+    passport.authenticate( 'google', {
+        successRedirect: '/auth/google/callback',
+        failureRedirect: '/auth/google/failure'
+}));
 
 // Start the API server
 app.listen(PORT, function() {

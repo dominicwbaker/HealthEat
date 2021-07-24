@@ -3,6 +3,12 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require('../models/user')
 
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email", "openid"],
+  })
+);
 //passport authentication 
 router.get(
     "/google/redirect",
@@ -24,7 +30,7 @@ router.get(
         // options for google strategy
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "https://podshack.herokuapp.com/auth/google/redirect",
+        callbackURL: "http://localhost:3000/auth/google/redirect",
       },
       (accessToken, refreshToken, profile, done) => {
         // passport callback function

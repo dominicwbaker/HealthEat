@@ -2,10 +2,13 @@ const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
 const axios = require("axios");
+const authRoutes = require('./authRoutes')
 // API Routes
 router.use("/api", apiRoutes);
 console.log("look here")
-
+//authorization routes
+router.use("/auth", authRoutes);
+console.log("working!")
 // If no API routes are hit, send the React app
 router.get("/search", (req, res) => {
   console.log("see")
