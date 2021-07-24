@@ -46,7 +46,30 @@ class MealPlan extends React.Component {
                 })
             })
 
+<<<<<<< HEAD
+=======
+            // const randSearch = Math.floor(Math.random() * meals.length)
+            // const randMeal = meals[randSearch]
+            // console.log(randMeal)
+            //         var n = 3
+            //         var randomMeals = new Array(n),
+            //             len = this.state.meals.length,
+            //             taken = new Array(len);
+            //         if (n > len)
+            //             throw new RangeError("getRandom: more elements taken than available");
+            //         while (n--) {
+            //             var x = Math.floor(Math.random() * len);
+            //             randomMeals[n] = this.state.meals[x in taken ? taken[x] : x];
+            //             taken[x] = --len in taken ? taken[len] : len;
+            //         } console.log(randomMeals)
+            //     })
+            // })
+
+
+>>>>>>> main
         } catch (err) { console.log(err) }
+
+
 
     }
 
@@ -61,11 +84,24 @@ class MealPlan extends React.Component {
                             key={variant}
                             id={`dropdown-variants-${variant}`}
                             variant={variant.toLowerCase()}
+<<<<<<< HEAD
                             title="How Many Meals"
                         >
                             <Dropdown.Item onClick={() => { n = 1 }} eventKey="1">1 Meal</Dropdown.Item>
                             <Dropdown.Item onClick={() => { n = 2 }} eventKey="2">2 Meals</Dropdown.Item>
                             <Dropdown.Item onClick={() => { n = 3 }} eventKey="3">3 Meals</Dropdown.Item>
+=======
+                            title="Choose a Diet"
+
+                        >
+
+                            <Dropdown.Item onClick={() => { this.getMeals("keto-friendly") }} eventKey="1">Keto-Friendly</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { this.getMeals("pescatarian") }} eventKey="2">Pescatarian</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { this.getMeals("fodmap-free") }} eventKey="3">Fodmap-Free</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { this.getMeals("vegan") }} eventKey="4">Vegan</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { this.getMeals("gluten-free") }} eventKey="5">Gluten-Free</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { this.getMeals("tree-nut-free") }} eventKey="6">Tree-Nut-Free</Dropdown.Item>
+>>>>>>> main
                         </DropdownButton>
                     ),
                 )}
