@@ -5,6 +5,9 @@ const path = require("path");
 var cors = require('cors')
 const app = express();
 require('dotenv').config()
+const passport = require('passport');
+//dont forget to install on your local npm
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 app.use(cors())
 
@@ -19,9 +22,13 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+//creates passport session
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/healtheat");
+
 
 // Add routes, both API and view
 const routes = require("./routes");

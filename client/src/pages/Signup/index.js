@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Container from "../../Components/Container";
 import Col from "../../Components/Col";
 import Row from "../../Components/Row";
-
+import { Link, useLocation } from "react-router-dom";
 function Signup() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -45,6 +45,8 @@ function Signup() {
           <button className="btn btn-success" type="submit">
             Submit
           </button>
+          <Link>Blah blach</Link>
+          
         </Container>
         <Container className="mt-4">
           <h3>Hello {username}!</h3>
