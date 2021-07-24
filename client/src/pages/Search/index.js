@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import API from "../../utils/API"
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-
 import Alert from "../../Components/Alert";
 import Recipe from "../../Components/Recipe";
 

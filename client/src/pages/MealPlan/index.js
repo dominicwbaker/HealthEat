@@ -4,8 +4,11 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { ButtonGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { v4 as uuidv4 } from "uuid";
+import Recipe from "../../Components/Recipe";
 
 var n = 1
+
 
 class MealPlan extends React.Component {
     // const [meals, setMeals] = useState([])
@@ -24,28 +27,24 @@ class MealPlan extends React.Component {
                 // setMeals(search.data, () => {
                 //     console.log("working")
                 // })
+                console.log(search.data)
+                const randomMeals = new Array(n)
+                var len = search.data.length;
+                var taken = new Array(len);
+                if (n > len)
+                    throw new RangeError("getRandom: more elements taken than available");
+                while (n--) {
+                    var x = Math.floor(Math.random() * len);
+                    randomMeals[n] = search.data[x in taken ? taken[x] : x];
+                    taken[x] = --len in taken ? taken[len] : len;
+                }
+                console.log(randomMeals)
+
                 this.setState({
-                    meals: search.data
+                    meals: randomMeals
                 }, () => {
-                    console.log(this.state.meals)
-
-                    // const randSearch = Math.floor(Math.random() * meals.length)
-                    // const randMeal = meals[randSearch]
-                    // console.log(randMeal)
-
-                    var randomMeals = new Array(n),
-                        len = this.state.meals.length,
-                        taken = new Array(len);
-                    if (n > len)
-                        throw new RangeError("getRandom: more elements taken than available");
-                    while (n--) {
-                        var x = Math.floor(Math.random() * len);
-                        randomMeals[n] = this.state.meals[x in taken ? taken[x] : x];
-                        taken[x] = --len in taken ? taken[len] : len;
-                    } console.log(randomMeals)
                 })
             })
-
 
         } catch (err) { console.log(err) }
 
@@ -55,6 +54,22 @@ class MealPlan extends React.Component {
 
         return (
             <div>
+                {['Secondary'].map(
+                    (variant) => (
+                        <DropdownButton
+                            as={ButtonGroup}
+                            key={variant}
+                            id={`dropdown-variants-${variant}`}
+                            variant={variant.toLowerCase()}
+                            title="How Many Meals"
+                        >
+                            <Dropdown.Item onClick={() => { n = 1 }} eventKey="1">1 Meal</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { n = 2 }} eventKey="2">2 Meals</Dropdown.Item>
+                            <Dropdown.Item onClick={() => { n = 3 }} eventKey="3">3 Meals</Dropdown.Item>
+                        </DropdownButton>
+                    ),
+                )}
+
                 {['Secondary'].map(
                     (variant) => (
                         <DropdownButton
@@ -74,34 +89,11 @@ class MealPlan extends React.Component {
                     ),
                 )}
 
-                {['Secondary'].map(
-                    (variant) => (
-                        <DropdownButton
-                            as={ButtonGroup}
-                            key={variant}
-                            id={`dropdown-variants-${variant}`}
-                            variant={variant.toLowerCase()}
-                            title="How Many Meals"
-                        >
-                            <Dropdown.Item onClick={() => { n = 1 }} eventKey="1">1 Meal</Dropdown.Item>
-                            <Dropdown.Item onClick={() => { n = 2 }} eventKey="2">2 Meals</Dropdown.Item>
-                            <Dropdown.Item onClick={() => { n = 3 }} eventKey="3">3 Meals</Dropdown.Item>
-                        </DropdownButton>
-                    ),
-                )}
+                <div className="recipes">
+                    {this.statemeals !== [] &&
+                        this.state.meals.map(meal => <Recipe key={uuidv4()} recipe={meal} />)}
+                </div>
             </div>
-
-            /* <form>
-                    <input
-                        ref={query}
-                        name="query"
-                        placeholder="Search"
-                    />
-                    <button
-                        onClick={getMeals   }
-                        type="button"
-                    >Search</button>
-                </form> */
         )
     }
 }
