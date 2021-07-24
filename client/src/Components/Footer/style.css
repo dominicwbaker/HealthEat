@@ -1,13 +1,10 @@
-.footer {
-  min-height: 100px;
-  position: relative;
-}
-
-.footer span {
-  position: absolute;
+.footer{
+  color: black;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(201, 59, 83);
+  position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
-  padding: 3px;
-  background: #b8b8b8;
+  width: 100%;
 }
