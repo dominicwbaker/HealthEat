@@ -23,6 +23,14 @@ function Navbar() {
                   : "nav-link"}>Home</Link>
           </li>
 
+          <li className="nav-item">
+            <Link
+              to="/dashboard"
+              className={window.location.pathname === "/dashboard" 
+              ? "nav-link active" 
+              : "nav-link"}>Dashboard</Link>
+          </li>
+
 
           <li className="nav-item">
             <Link
