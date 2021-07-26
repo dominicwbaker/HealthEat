@@ -30,14 +30,6 @@ function Navbar() {
               className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}
             >Sign Up</Link>
           </li>
-
-          <li>
-            <Link
-              to="/dashboard"
-              className={window.location.pathname === "/dashboard"
-                ? "nav-link active": "nav-link"}>Dashboard</Link>
-          </li>
-
           <li className="nav-item">
             <Link
               to="/signup"
