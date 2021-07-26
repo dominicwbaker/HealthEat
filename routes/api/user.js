@@ -1,16 +1,10 @@
-const router = require("express").Router();
-const userController = require("../../controllers/userController");
+const router = require('express').Router();
+const userController = require('../controllers/user');
 
-// Matches with "/api/user"
-router.route("/")
-  .get(userController.findAll)
-  .post(userController.create);
+// Register a new User
+router.post('/register', userController.register);
 
-// Matches with "/api/user/:id"
-router.route("/:id")
-  .get(userController.findById)
-  .put(userController.update)
-  .delete(userController.remove);
-
+// Login
+router.post('/login', userController.login);
 
 module.exports = router;

@@ -65,6 +65,7 @@ class MealPlan extends React.Component {
                             <Dropdown.Item onClick={() => { n = 1 }} eventKey="1">1 Meal</Dropdown.Item>
                             <Dropdown.Item onClick={() => { n = 2 }} eventKey="2">2 Meals</Dropdown.Item>
                             <Dropdown.Item onClick={() => { n = 3 }} eventKey="3">3 Meals</Dropdown.Item>
+                            <p>{n}</p>
                         </DropdownButton>
                     ),
                 )}
