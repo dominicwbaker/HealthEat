@@ -25,6 +25,7 @@ const Dashboard = () => {
     return (
         <div>
             <Wrapper>
+                <h1>My Favorite Recipes</h1>
                 <div className={classes.root}>
                     <ImageList rowHeight={160} className={classes.imageList} cols={3}>
                         {itemData.map((item) => (
