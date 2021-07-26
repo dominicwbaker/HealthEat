@@ -32,11 +32,12 @@ function Navbar() {
             </li>
 
             <li>
-              <Link>
-                to="/dashboard"
+              <Link 
+              to="/dashboard"
                 className={window.location.pathname === "/dashboard" 
                 ? "nav-link active" 
-                : "nav-link"}Dashboard</Link>
+                : "nav-link"}
+                >Dashboard</Link>
             </li>
 
 
